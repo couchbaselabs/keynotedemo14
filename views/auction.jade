@@ -1,0 +1,101 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title Auction || SLC || Couchbase 3.0
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(type='text/css', rel='stylesheet', href='/stylesheets/featherlight.css', title='Featherlight Styles')
+    style
+        |body {padding-top: 10px}
+        |.bs-example {margin: 20px;}
+    script(type='text/javascript', src='/javascripts/jquery.min.js')
+    script(type='text/javascript', src='/javascripts/bootstrap.min.js')
+    script(type='text/javascript', src='/javascripts/featherlight.js')
+    script(type='text/javascript', src='/javascripts/scriptsAuction.js')
+    body
+        .container
+            .row.clearfix
+                .col-sm-6.column
+                    .panel.panel-primary
+                        .panel-heading
+                            h3.panel-title Couchbase Auction
+                        .panel-body
+                            img(alt='Nuisance Vehicle', src='/images/Mass2.jpg')
+                            h5 <strong> US SITE </strong> <img src="/images/us.png"/>
+                .col-sm-6.column
+                   .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title Item Description
+                    .panel-body
+                      h3.text-default.text-left
+                        strong 2014 Maserati
+                        p
+                          small Logged-in as:
+                            strong #{user}
+                      h3
+                        | Current Bid:
+                        label(id="bid")
+                            strong  $#{amount}
+                        label(id="us")
+                            small <small>(us dollars only)</small>
+                        p
+                            small Current High Bidder:
+                                strong(id="high") #{high}
+
+                        form.form-signin(role="form" action="/api/auction/bid" method="post" style="width:200px")
+                            .input-group
+                                input.form-control(type='text' placeholder="Bid Amount", required="", autofocus="", name="bid")
+                                span.input-group-btn <button class="btn btn-danger type="button">BID!</button>
+                        p
+                            small Bid History:
+                                a.btn.btn-default.btn-xs(href='/api/auction/view/get', id='fl') here
+                      if err
+                          |<div class="bs-example">
+                          |  <div class="alert alert-danger alert-error">
+                          |      <a href="#" class="close" data-dismiss="alert">&times;</a>
+                          |      Please enter a minimum bid that is between $1 and $500 more than the current bid.
+                          |      </div>
+                          |</div>
+            .row.clearfix
+                .col-sm-12.column
+                  .panel.panel-primary
+                    .panel-heading
+                      h3.panel-title  Item Information
+                    .panel-body
+                      dl
+                        dt
+                            | 2014 Maserati Coupe
+                        dd
+                            | Here is your chance to own a low mileage 2014 Maserati Coupe!  This specific vehicle has been a nuisance in the Couchbase Garage since it arrived earlier in the year.
+                        dd
+
+                          p
+
+                        dt
+                            | Specs
+                        dd
+                            | 454 BHP Italian Made 4.7L V8 Engine -- Way more than you need.
+                        dd
+                            | 0-60 in 4.7 seconds!   Top speed 185 mph! -- Damn that's fast.
+                        dd
+
+                          p
+
+                        dt
+                            | Condition
+                        dd
+                            | New.  Driven by an eldery gentleman for commuting purposes only.
+
+                        dd
+
+                           p
+
+                        dt
+                            | Conditions of Sale
+                        dd
+                            | Payment due within 72 hours of auction closing.  Seller will deliver vehicle.
+                    .panel-footer
+                      h6 Happy Bidding! <small> © 2014 Couchbase.com </small> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Powered by:&nbsp;&nbsp;&nbsp;<img src="/images/logoCouchbase.png"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/logoNode.png"/>&nbsp;&nbsp;&nbsp;&nbsp;<img src="/images/logoExpress.png"/>

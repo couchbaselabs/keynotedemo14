@@ -1,0 +1,20 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        title Couchbase 3.0 Demonstration
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        meta(name='description', content='')
+        meta(name='author', content='')
+        link(href='/stylesheets/bootstrap.min.css', rel='stylesheet')
+        link(href='/stylesheets/style.css', rel='stylesheet')
+        script(type='text/javascript', src='/javascripts/jquery.min.js')
+        script(type='text/javascript', src='/javascripts/bootstrap.min.js')
+        script(type='text/javascript', src='/javascripts/scripts.js')
+    body
+       h3
+         |<em class="emph">#{title}</em> ( #{count} Bids)
+       ul
+         each key in keyList
+            li
+               | $ #{key.key}<strong>  #{key.value[0]}</strong> <small>#{key.value[1]}</small>
