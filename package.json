@@ -9,7 +9,7 @@
     "express-session":"*",
     "morgan": "~1.3.0",
     "serve-favicon": "~2.1.3",
-    "debug": "~2.0.0",
+    "debug": "~4.1.1",
     "jade": "~1.6.0",
     "bower":"*",
     "couchbase": "git+https://github.com/brett19/couchnode.git",
